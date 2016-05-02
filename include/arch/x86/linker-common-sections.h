@@ -163,6 +163,16 @@ SECTIONS
 		KEXEC_PGALIGN_PAD(MMU_PAGE_SIZE)
 	} GROUP_DATA_LINK_IN(RAM, ROM)
 
+#ifdef CONFIG_NET_YAIP
+	SECTION_DATA_PROLOGUE(net_if, (OPTIONAL),)
+	{
+		__net_if_start = .;
+		*(".net_if.*")
+		KEEP(*(SORT_BY_NAME(".net_if*")))
+		__net_if_end = .;
+	} GROUP_DATA_LINK_IN(RAM, ROM)
+#endif
+
 	SECTION_DATA_PROLOGUE(_k_task_list, (OPTIONAL),)
 	{
 		_k_task_list_start = .;
