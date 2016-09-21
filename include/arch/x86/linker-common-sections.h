@@ -189,14 +189,6 @@ SECTIONS
 		KEEP(*(SORT_BY_NAME(".net_l2.data*")))
 		__net_l2_data_end = .;
 	} GROUP_DATA_LINK_IN(RAM, ROM)
-
-	SECTION_DATA_PROLOGUE(net_nbr, (OPTIONAL),)
-	{
-		__net_nbr_start = .;
-		*(".net_nbr.*")
-		KEEP(*(SORT_BY_NAME(".net_nbr*")))
-		__net_nbr_end = .;
-	} GROUP_DATA_LINK_IN(RAM, ROM)
 #endif
 
 	SECTION_DATA_PROLOGUE(_k_task_list, (OPTIONAL),)
