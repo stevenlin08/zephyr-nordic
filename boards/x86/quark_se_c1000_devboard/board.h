@@ -27,7 +27,9 @@
 #define SW1_GPIO_PIN	5
 #define SW1_GPIO_NAME	CONFIG_GPIO_QMSI_0_NAME
 
-#if defined(CONFIG_TI_CC2520_LEGACY) || defined(CONFIG_TI_CC2520)
+#if defined(CONFIG_TI_CC2520_LEGACY) || \
+	defined(CONFIG_TI_CC2520) || \
+	defined(CONFIG_TI_CC2520_RAW)
 
 /* GPIO numbers where the TI cc2520 chip is connected to */
 #define CONFIG_CC2520_GPIO_VREG_EN	0  /* PIN ?, ATP_AON_INT0 (out) */
@@ -52,7 +54,7 @@ enum cc2520_gpio_index {
 	CC2520_GPIO_IDX_LAST_ENTRY
 };
 
-#endif /* CONFIG_TI_CC2520_LEGACY || CONFIG_TI_CC2520 */
+#endif /* CONFIG_TI_CC2520_LEGACY || CONFIG_TI_CC2520 || CONFIG_TI_CC2520_RAW */
 
 #if defined(CONFIG_USB)
 /* GPIO driver name */
