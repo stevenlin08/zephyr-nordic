@@ -119,6 +119,16 @@ SECTIONS {
 		__devconfig_end = .;
 	} GROUP_LINK_IN(ROMABLE_REGION)
 
+#ifdef CONFIG_NET_YAIP
+	SECTION_PROLOGUE(net_l2_init, (OPTIONAL),)
+	{
+		__net_l2_start = .;
+		*(".net_l2.init")
+		KEEP(*(SORT_BY_NAME(".net_l2.init*")))
+		__net_l2_end = .;
+	} GROUP_LINK_IN(ROMABLE_REGION)
+#endif
+
 #ifdef CONFIG_CPLUSPLUS
 	SECTION_PROLOGUE(_CTOR_SECTION_NAME,,) {
 		/*
