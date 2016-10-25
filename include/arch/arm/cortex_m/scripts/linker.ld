@@ -126,7 +126,7 @@ SECTIONS
 	} GROUP_LINK_IN(ROMABLE_REGION)
 
 #ifdef CONFIG_NET_YAIP
-	SECTION_PROLOGUE(net_l2_init, (OPTIONAL),)
+	SECTION_PROLOGUE(net_l2, (OPTIONAL),)
 	{
 		__net_l2_start = .;
 		*(".net_l2.init")
